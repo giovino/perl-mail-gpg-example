@@ -20,23 +20,23 @@ On the receiving Linux mail server:
 
 Note: you need to install the Perl module Event due to a missing dependency.
 
-sudo perl -MCPAN -e 'install Event Mail::GPG MIME::Parser'
+    sudo perl -MCPAN -e 'install Event Mail::GPG MIME::Parser'
 
 3. Create a gpg key
  - http://www.madboa.com/geek/gpg-quickstart/
 
 4. Import the key into gpg under the user account where this script will run.
- - gpg --fast-import key.pub key.sec
+    gpg --fast-import key.pub key.sec
 
 5. Create a procmail rule and forward gpg encrypted messages to decrypt.pl
 
-> # Example procmailrc rule
-> :0
-> * ^To: <username>@<domain>.<tld>
-> | /home/<username>/bin/decrypt.pl
+    # Example procmailrc rule
+    :0
+    * ^To: <username>@<domain>.<tld>
+    | /home/<username>/bin/decrypt.pl
 
 6. Edit decrypt.pl to do something with the returned array
 
 You can test with something like:
 
-cat encrypted_email.eml | ./decrypt.pl
+    cat encrypted_email.eml | ./decrypt.pl

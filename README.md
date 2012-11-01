@@ -30,10 +30,10 @@ sudo perl -MCPAN -e 'install Event Mail::GPG MIME::Parser'
 
 5. Create a procmail rule and forward gpg encrypted messages to decrypt.pl
 
-# Example procmailrc rule
-:0
-* ^To: <username>@<domain>.<tld>
-| /home/<username>/bin/decrypt.pl
+> # Example procmailrc rule
+> :0
+> * ^To: <username>@<domain>.<tld>
+> | /home/<username>/bin/decrypt.pl
 
 6. Edit decrypt.pl to do something with the returned array
 

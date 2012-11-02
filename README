@@ -31,11 +31,13 @@ Note: you need to install the Perl module Event due to a missing dependency.
 5. Create a procmail rule and forward gpg encrypted messages to decrypt.pl
 
     # Example procmailrc rule
-    0
-     ^To: <username>@<domain>.<tld>
-     /home/<username>/bin/decrypt.pl
+    :0
+    * ^To: <username>@<domain>.<tld>
+    | /home/<username>/bin/decrypt.pl
 
 6. Edit decrypt.pl to do something with the returned array
+
+Testing:
 
 You can test with something like:
 
